@@ -1,6 +1,7 @@
-package com.xiong.rxdemo.retrofit.http;
+package com.xiong.rxdemo.http;
 
-import com.xiong.rxdemo.retrofit.RetrofitClient;
+import com.xiong.rxdemo.http.interfac.Api;
+import com.xiong.rxdemo.http.retrofit.RetrofitClient;
 
 /**
  * @author: xiong

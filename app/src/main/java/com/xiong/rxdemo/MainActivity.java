@@ -6,12 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.xiong.rxdemo.retrofit.http.HttpService;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import retrofit2.Response;
+import com.xiong.rxdemo.http.listener.HttpResponseListener;
+import com.xiong.rxdemo.http.HttpService;
+import com.xiong.rxdemo.http.HttpSubscriber;
+import com.xiong.rxdemo.http.compose.ConvertSchedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,26 +33,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void getCode() {
         HttpService.getInstance().requestCode()
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .subscribe(new Observer<Response<String>>() {
+                .compose(new ConvertSchedulers<String>())
+                .subscribe(new HttpSubscriber<>(this,String.class , new HttpResponseListener<String>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
-
+                    public void onSucceed(String data, String method) {
+                        Log.e("111","111");
                     }
 
                     @Override
-                    public void onNext(Response<String> stringResponse) {
-                    }
+                    public void onError(Throwable exception) {
 
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.e("test",e.toString());
                     }
 
                     @Override
                     public void onComplete() {
+
                     }
-                });
+                }));
     }
 }

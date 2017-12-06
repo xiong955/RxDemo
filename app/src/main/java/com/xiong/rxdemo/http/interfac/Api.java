@@ -1,4 +1,4 @@
-package com.xiong.rxdemo.retrofit.http;
+package com.xiong.rxdemo.http.interfac;
 
 import io.reactivex.Observable;
 import retrofit2.Response;

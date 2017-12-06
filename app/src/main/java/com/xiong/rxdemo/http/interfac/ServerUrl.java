@@ -1,4 +1,4 @@
-package com.xiong.rxdemo.retrofit.http;
+package com.xiong.rxdemo.http.interfac;
 
 /**
  * @author: xiong
@@ -9,7 +9,7 @@ package com.xiong.rxdemo.retrofit.http;
 public interface ServerUrl {
 
     // 接口地址
-    String mServerUrl = "http://www.api.sayahao.com/";
+    String mServerUrl = "http://www.api.tc3ga.com/";
 
     String CODE = "vcode";
 }

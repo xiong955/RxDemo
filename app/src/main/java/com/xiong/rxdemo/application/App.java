@@ -3,8 +3,8 @@ package com.xiong.rxdemo.application;
 import android.app.Application;
 
 import com.xiong.rxdemo.BuildConfig;
-import com.xiong.rxdemo.retrofit.RetrofitClient;
-import com.xiong.rxdemo.retrofit.http.ServerUrl;
+import com.xiong.rxdemo.http.retrofit.RetrofitClient;
+import com.xiong.rxdemo.http.interfac.ServerUrl;
 
 /**
  * @author: xiong

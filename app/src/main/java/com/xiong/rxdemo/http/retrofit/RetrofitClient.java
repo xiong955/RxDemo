@@ -1,4 +1,4 @@
-package com.xiong.rxdemo.retrofit;
+package com.xiong.rxdemo.http.retrofit;
 
 import android.content.Context;
 import android.util.Log;
