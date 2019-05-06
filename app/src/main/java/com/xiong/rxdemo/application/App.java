@@ -3,6 +3,7 @@ package com.xiong.rxdemo.application;
 import android.app.Application;
 
 import com.xiong.rxdemo.BuildConfig;
+import com.xiong.rxdemo.Constant;
 import com.xiong.rxdemo.http.retrofit.RetrofitClient;
 import com.xiong.rxdemo.http.interfac.ServerUrl;
 
@@ -14,16 +15,9 @@ import com.xiong.rxdemo.http.interfac.ServerUrl;
 
 public class App extends Application {
 
-    private static App instance;
-
-    public static App getInstance() {
-        return instance;
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
 
         //网络请求初始化
         initNet();
@@ -32,7 +26,7 @@ public class App extends Application {
     private void initNet() {
         // 创建Retrofit
         new RetrofitClient.Builder(this, BuildConfig.APPLICATION_ID, ServerUrl.mServerUrl)
-                .setDebug(true)
+                .setDebug(Constant.isDebug)
                 .setConnectionTimeout(10)
                 .setReadTimeout(10)
                 .setWriteTimeout(10)

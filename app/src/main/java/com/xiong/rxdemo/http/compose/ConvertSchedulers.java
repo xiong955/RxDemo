@@ -12,7 +12,7 @@ import retrofit2.Response;
 /**
  * @author: xiong
  * @time: 2017/12/06
- * @说明:
+ * @说明: 调度器
  */
 
 public class ConvertSchedulers<T> implements ObservableTransformer<Response<T>, T> {

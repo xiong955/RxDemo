@@ -15,7 +15,7 @@ import io.reactivex.functions.Function;
 /**
  * @author: xiong
  * @time: 2017/12/06
- * @说明:
+ * @说明: 重试
  */
 public class RetryWhenNetwork implements Function<Observable<? extends Throwable>, Observable<?>> {
     // retry次数
@@ -68,7 +68,7 @@ public class RetryWhenNetwork implements Function<Observable<? extends Throwable
         private int index;
         private Throwable throwable;
 
-        public Wrapper(Throwable throwable, int index) {
+        Wrapper(Throwable throwable, int index) {
             this.index = index;
             this.throwable = throwable;
         }

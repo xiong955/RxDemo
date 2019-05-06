@@ -1,5 +1,7 @@
 package com.xiong.rxdemo.http.interfac;
 
+import com.xiong.rxdemo.bean.News;
+
 import io.reactivex.Observable;
 import retrofit2.Response;
 import retrofit2.http.GET;
@@ -14,6 +16,6 @@ public interface Api {
 
     /* 验证码 */
     @GET(ServerUrl.CODE)
-    Observable<Response<String>> requestCode();
+    Observable<Response<News>> requestCode();
 
 }

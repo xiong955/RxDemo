@@ -16,7 +16,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 /**
  * @author: xiong
  * @time: 2017/11/30
- * @说明:
+ * @说明: Retrofit
  */
 
 public class RetrofitClient {
@@ -54,12 +54,12 @@ public class RetrofitClient {
      * 创建Client
      */
     private Retrofit crateRetrofit(Builder config) {
-        Log.e("TAG","创建RetrofitClient");
+        Log.e("HttpLog","创建RetrofitClient");
         /* 拦截器 ->  */
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
-                Log.e("TAG",message);
+                Log.e("HttpLog",message);
             }
         });
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

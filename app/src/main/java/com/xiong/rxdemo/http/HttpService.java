@@ -19,7 +19,7 @@ public class HttpService {
     private static Api INSTANCE;
 
     /**
-     * 获取接口，然后就可以玩起来了
+     * 单例获取接口
      */
     public static Api getInstance() {
         if (INSTANCE == null) {

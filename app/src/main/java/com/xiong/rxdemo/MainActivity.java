@@ -2,17 +2,19 @@ package com.xiong.rxdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import com.xiong.rxdemo.http.listener.HttpResponseListener;
+import com.xiong.rxdemo.bean.News;
 import com.xiong.rxdemo.http.HttpService;
 import com.xiong.rxdemo.http.HttpSubscriber;
 import com.xiong.rxdemo.http.compose.ConvertSchedulers;
+import com.xiong.rxdemo.http.listener.SimpleNetResponseListener;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button btn;
     private TextView tv;
 
     @Override
@@ -20,34 +22,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv = findViewById(R.id.tv);
-        tv.setOnClickListener(new View.OnClickListener() {
+        initView();
+    }
+
+    private void initView() {
+        btn = findViewById(R.id.btn);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getCode();
             }
         });
-
-
+        tv = findViewById(R.id.tv);
     }
 
     private void getCode() {
         HttpService.getInstance().requestCode()
-                .compose(new ConvertSchedulers<String>())
-                .subscribe(new HttpSubscriber<>(this,String.class , new HttpResponseListener<String>() {
+                .compose(new ConvertSchedulers<News>())
+                .subscribe(new HttpSubscriber<>(this, News.class, new SimpleNetResponseListener<News>() {
                     @Override
-                    public void onSucceed(String data, String method) {
-                        Log.e("111","111");
-                    }
-
-                    @Override
-                    public void onError(Throwable exception) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
+                    public void onSucceed(News data, String method) {
+                        tv.setText(data.toString());
                     }
                 }));
     }
