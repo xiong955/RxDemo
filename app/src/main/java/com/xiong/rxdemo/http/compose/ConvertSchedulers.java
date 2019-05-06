@@ -18,7 +18,7 @@ import retrofit2.Response;
 public class ConvertSchedulers<T> implements ObservableTransformer<Response<T>, T> {
     @Override
     public ObservableSource<T> apply(@NonNull Observable<Response<T>> upstream) {
-        return  upstream
+        return upstream
 //                .delay(5, TimeUnit.SECONDS)     //请求延迟五秒，再开始
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())

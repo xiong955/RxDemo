@@ -7,11 +7,11 @@ import android.util.Log;
  * @time: 2019/05/06
  * @说明:
  */
-public abstract class SimpleNetResponseListener<T> implements HttpResponseListener<T>{
+public abstract class SimpleNetResponseListener<T> implements HttpResponseListener<T> {
 
     @Override
     public void onError(Throwable exception) {
-        Log.e("onError",exception.getMessage());
+        Log.e("onError", exception.getMessage());
     }
 
     @Override

@@ -19,7 +19,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        //网络请求初始化
+        // 网络请求初始化
         initNet();
     }
 

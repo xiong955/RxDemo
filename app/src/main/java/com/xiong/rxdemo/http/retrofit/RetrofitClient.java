@@ -54,12 +54,12 @@ public class RetrofitClient {
      * 创建Client
      */
     private Retrofit crateRetrofit(Builder config) {
-        Log.e("HttpLog","创建RetrofitClient");
+        Log.e("HttpLog", "创建RetrofitClient");
         /* 拦截器 ->  */
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
-                Log.e("HttpLog",message);
+                Log.e("HttpLog", message);
             }
         });
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -69,7 +69,7 @@ public class RetrofitClient {
                 .writeTimeout(config.writeTimeout, TimeUnit.SECONDS)
                 .connectTimeout(config.connectionTimeout, TimeUnit.SECONDS);
         // 是否调试
-        if(config.debug){
+        if (config.debug) {
             builder.addInterceptor(loggingInterceptor);
         }
         OkHttpClient client = builder.build();
@@ -86,7 +86,7 @@ public class RetrofitClient {
         return retrofit;
     }
 
-    public static final class Builder{
+    public static final class Builder {
         // 读取超时-默认6秒
         int readTimeout = 6;
         // 写入超时-默认6秒
@@ -98,13 +98,14 @@ public class RetrofitClient {
         //绑定的BaseUrl
         String baseUrl;
 
-        public Builder(Context context,String appId,String baseUrl){
+        public Builder(Context context, String appId, String baseUrl) {
             this.baseUrl = baseUrl;
             //toast,网络异常,缓存
         }
 
         /**
          * 是否开启网络请求输出 调试日志
+         *
          * @param debug
          */
         public Builder setDebug(boolean debug) {
@@ -114,6 +115,7 @@ public class RetrofitClient {
 
         /**
          * 读取超时
+         *
          * @param readTimeout
          */
         public Builder setReadTimeout(int readTimeout) {
@@ -123,6 +125,7 @@ public class RetrofitClient {
 
         /**
          * 写入超时
+         *
          * @param writeTimeout
          */
         public Builder setWriteTimeout(int writeTimeout) {
@@ -132,6 +135,7 @@ public class RetrofitClient {
 
         /**
          * 链接超时
+         *
          * @param connectionTimeout
          */
         public Builder setConnectionTimeout(int connectionTimeout) {

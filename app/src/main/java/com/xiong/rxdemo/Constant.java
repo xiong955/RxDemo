@@ -6,5 +6,5 @@ package com.xiong.rxdemo;
  * @说明: 常量
  */
 public class Constant {
-    public static boolean isDebug = false;
+    public static boolean isDebug = true;
 }
