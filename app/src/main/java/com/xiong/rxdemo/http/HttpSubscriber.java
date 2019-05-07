@@ -67,7 +67,6 @@ public class HttpSubscriber<T> implements Observer<T> {
      * 显示dialog
      */
     private void showProgressDialog(Context context, IDialog state) {
-
         switch (state) {
             case UN_LOADING:
                 break;
