@@ -8,7 +8,7 @@ package com.xiong.rxdemo.http.interfac;
 
 public interface ServerUrl {
     // 接口地址
-    String mServerUrl = "https://api.apiopen.top/";
+    String mServerUrl = "https://www.zhihu.com/";
 
-    String CODE = "getWangYiNews";
+    String Test = "api/v3/oauth/sms/supported_countries";
 }

@@ -15,7 +15,10 @@ import retrofit2.http.GET;
 public interface Api {
 
     /* 验证码 */
-    @GET(ServerUrl.CODE)
-    Observable<Response<News>> requestCode();
+    @GET(ServerUrl.Test)
+    Observable<Response<News>> Test(
+//            @Query("page") String page,
+//            @Query("type") String type
+    );
 
 }

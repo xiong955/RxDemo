@@ -11,6 +11,7 @@ import com.xiong.rxdemo.http.HttpService;
 import com.xiong.rxdemo.http.HttpSubscriber;
 import com.xiong.rxdemo.http.compose.ConvertSchedulers;
 import com.xiong.rxdemo.http.listener.SimpleNetResponseListener;
+import com.xiong.rxdemo.widget.IDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getCode() {
-        HttpService.getInstance().requestCode()
+        HttpService.getInstance().Test()
                 .compose(new ConvertSchedulers<News>())
-                .subscribe(new HttpSubscriber<>(this, News.class, new SimpleNetResponseListener<News>() {
+                .subscribe(new HttpSubscriber<>(this, IDialog.FORBID_LOADING, News.class, new SimpleNetResponseListener<News>() {
                     @Override
                     public void onSucceed(News data, String method) {
                         tv.setText(data.toString());

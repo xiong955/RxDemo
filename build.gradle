@@ -29,16 +29,13 @@ ext {
 
     configs = [
             minSdkVersion    : 16,
-            compileSdkVersion: 26,
-            targetSdkVersion : 26
+            compileSdkVersion: 28,
+            targetSdkVersion : 28
     ]
 
     nets = [
-            supportLibVersion : "25.1.0",
             rxandroid2Version : "2.0.1",
             rxjava2Version    : "2.1.0",
             retrofit2Version  : "2.2.0",
-            rxlifecycle       : "2.1.0",
-            gsonVersion       : "2.8.0"
     ]
 }
