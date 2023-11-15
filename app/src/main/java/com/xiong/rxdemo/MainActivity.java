@@ -68,11 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getCode() {
         HttpService.getInstance().Test()
-                .subscribeOn(Schedulers.io())
-                .unsubscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread(), true)
                 .compose(new ConvertSchedulers<News>())
-                .retryWhen(new RetryWhenNetwork())
                 .subscribe(new HttpSubscriber<>(this, IDialog.FORBID_LOADING, News.class, new SimpleNetResponseListener<News>() {
                     @Override
                     public void onSucceed(News data, String method) {
